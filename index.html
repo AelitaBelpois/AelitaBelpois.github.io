@@ -357,27 +357,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
-  <!-- =====================================================================
-       PLAYBACK-AWARE EQUALIZER
-       ---------------------------------------------------------------------
-       The equalizer reacts to the ACTUAL playback state of the Caster.fm
-       widget, using this priority order:
-
-         1. <audio>/<video> element created by the widget in THIS document
-            (most accurate — play / pause / ended / buffering events)
-         2. navigator.mediaSession.playbackState
-            (works even when the widget lives in a cross-origin iframe)
-         3. Optimistic fallback: after the first user gesture on the page,
-            assume the 24/7 stream is live. Used only when 1 and 2 are
-            unavailable (e.g. iframe without Media Session support).
-
-       Note: a true frequency spectrum is not possible here. The stream is
-       served from a different origin, so the Web Audio API would taint the
-       graph and SILENCE the radio (createMediaElementSource on CORS-blocked
-       media outputs silence). Playback state detection is therefore the
-       correct, safe way to make the animation "match" the audio.
-       ===================================================================== -->
   <script>
   (function () {
     "use strict";
